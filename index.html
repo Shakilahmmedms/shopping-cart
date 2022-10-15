@@ -64,25 +64,29 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="subTotal">1,278</span></h5>
                         <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="totalAmount">1,278</span>
+                        </h5>
                      </div>
                   </div>
                </div>
                <div class="col-md-12 pt-4 pb-4">
-                  <button type="button" class="btn btn-success check-out">Check Out</button>
+                  <button type="button" id="checkOut" class="btn btn-success check-out">Check Out</button>
                </div>
             </div>
          </div>
       </div>
    </section>
    <script>
-      // first add mobile number event hanlder
+      // first add  number event hanlder
       document.getElementById("first-plusbtn").addEventListener("click",function(){
             const firstPlus = document.getElementById("first-value").value;
             const addNumberMoible = addNumber(firstPlus);
-            
+               // subtotal calculation
+            const subTotal =  document.getElementById("subTotal").value;
+            const totalSubTotal = addNumberMoible *1219;
+            document.getElementById("subTotal").innerText = totalSubTotal;
           document.getElementById("first-value").value = addNumberMoible ;
            
       });
@@ -100,7 +104,7 @@
          const firstMinus = document.getElementById("first-value").value;
          const addNumberMoible = addNumber(firstMinus);
          const firstMinusFinal = minusNumber(firstMinus,addNumberMoible);
-
+         
          document.getElementById("first-value").value = firstMinusFinal;
         
        });
@@ -134,6 +138,10 @@
          document.getElementById("second-value").value = secondMinusFinal;
        });
       
+       //for subtotal and total amount
+
+       
+       
  
    </script>
 </body>
