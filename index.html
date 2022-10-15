@@ -81,20 +81,22 @@
    <script>
       // first add  number event hanlder
       document.getElementById("first-plusbtn").addEventListener("click",function(){
-            const firstPlus = document.getElementById("first-value").value;
-            const addNumberMoible = addNumber(firstPlus);
-               // subtotal calculation
+         const firstPlus = document.getElementById("first-value").value;
+            const doFirstPlus = addNumber(firstPlus);
+               // subtotal calculation for moible price
             const subTotal =  document.getElementById("subTotal").value;
-            const totalSubTotal = addNumberMoible *1219;
-            document.getElementById("subTotal").innerText = totalSubTotal;
-          document.getElementById("first-value").value = addNumberMoible ;
+            const moiblePrice = (doFirstPlus *1219)+59;
+
+            document.getElementById("subTotal").innerText = moiblePrice;
+            
+          document.getElementById("first-value").value = doFirstPlus ;
            
       });
       //function for add number
       function addNumber(id){
          var sum = 0;
             for (let i = 0; i <= id; i++) { 
-               sum = sum +1;  
+               sum = sum + 1;  
       }
       return sum;
       }
@@ -102,17 +104,22 @@
       // first minus moible event handler
       document.getElementById("first-minusbtn").addEventListener("click",function(){
          const firstMinus = document.getElementById("first-value").value;
-         const addNumberMoible = addNumber(firstMinus);
-         const firstMinusFinal = minusNumber(firstMinus,addNumberMoible);
+         const doFirstMinus = addNumber(firstMinus);
+         const firstMinusFinal = minusNumber(firstMinus,doFirstMinus);
+
+         const subTotal =  document.getElementById("subTotal").value;
+            const moiblePricefinal = (firstMinusFinal *1219)+59;
+           
+            document.getElementById("subTotal").innerText = moiblePricefinal;
          
          document.getElementById("first-value").value = firstMinusFinal;
         
        });
 
         // funtion for minus
-        function minusNumber(idName, addNumberMoible){
-         var sum = addNumberMoible;
-         for(var i= addNumberMoible;i>=idName;i--){
+        function minusNumber(idName, sumbNumber){
+         var sum = sumbNumber;
+         for(var i= sumbNumber;i>=idName;i--){
             sum = sum -1;
             if(sum == 1){
                break;
@@ -124,25 +131,46 @@
        // second plus  event handler add
        document.getElementById("second-plus").addEventListener("click",function(){
          const secondPlus = document.getElementById("second-value").value;
-         const addNumberMoible = addNumber(secondPlus);
+         const doSecondPlus = addNumber(secondPlus);
 
-         document.getElementById("second-value").value = addNumberMoible;
+         //from first plus
+         const firstPlus = document.getElementById("first-value").value;
+            const doFirstPlus = addNumber(firstPlus);
+               // subtotal calculation for moible price
+            const insubTotal =  document.getElementById("subTotal").value;
+            const moiblePrice = doFirstPlus *1219;
+
+       
+         //subtoal for moible cover         
+         const subTotal =  document.getElementById("subTotal").value;
+      
+         const moibleCoverPrice = doSecondPlus * 59  ;
+         const inTotal = (moibleCoverPrice + moiblePrice)-1219;
+         
+         
+          document.getElementById("subTotal"). innerText= inTotal;
+         
+         document.getElementById("second-value").value = doSecondPlus;
        });
 
        // second minus event handler add
        document.getElementById("second-minus").addEventListener("click",function(){
          const secondMinus = document.getElementById("second-value").value;
-         const addNumberMoible = addNumber(secondMinus);
-         const secondMinusFinal = minusNumber(secondMinus,addNumberMoible);
+         const doSecondMinus = addNumber(secondMinus);
+         const secondMinusFinal = minusNumber(secondMinus,doSecondMinus);
 
+         const subTotal =  document.getElementById("subTotal").value;
+            const moibleCoverfinal = (secondMinusFinal *59)+1219;
+           
+            document.getElementById("subTotal",).innerText = moibleCoverfinal;
+         
          document.getElementById("second-value").value = secondMinusFinal;
        });
       
-       //for subtotal and total amount
 
        
        
- 
+
    </script>
 </body>
 
