@@ -43,9 +43,9 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text"  class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="second-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input type="text" id="second-value"  class="form-control text-center" value="1">
+                           <button id="second-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
                         <h5>$59</h5>
@@ -99,24 +99,42 @@
       document.getElementById("first-minusbtn").addEventListener("click",function(){
          const firstMinus = document.getElementById("first-value").value;
          const addNumberMoible = addNumber(firstMinus);
+         const firstMinusFinal = minusNumber(firstMinus,addNumberMoible);
+
+         document.getElementById("first-value").value = firstMinusFinal;
+        
+       });
+
+        // funtion for minus
+        function minusNumber(idName, addNumberMoible){
          var sum = addNumberMoible;
-         for(var i= addNumberMoible;i>=firstMinus;i--){
+         for(var i= addNumberMoible;i>=idName;i--){
             sum = sum -1;
             if(sum == 1){
                break;
-         }
-         }
-         
+         } }
+         return sum;
+        }
+       
 
+       // second plus  event handler add
+       document.getElementById("second-plus").addEventListener("click",function(){
+         const secondPlus = document.getElementById("second-value").value;
+         const addNumberMoible = addNumber(secondPlus);
 
-      document.getElementById("first-value").value = sum;
+         document.getElementById("second-value").value = addNumberMoible;
+       });
 
-         
-         
-      });
+       // second minus event handler add
+       document.getElementById("second-minus").addEventListener("click",function(){
+         const secondMinus = document.getElementById("second-value").value;
+         const addNumberMoible = addNumber(secondMinus);
+         const secondMinusFinal = minusNumber(secondMinus,addNumberMoible);
 
+         document.getElementById("second-value").value = secondMinusFinal;
+       });
       
-     
+ 
    </script>
 </body>
 
