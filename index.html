@@ -102,7 +102,11 @@
          var sum = addNumberMoible;
          for(var i= addNumberMoible;i>=firstMinus;i--){
             sum = sum -1;
+            if(sum == 1){
+               break;
          }
+         }
+         
 
 
       document.getElementById("first-value").value = sum;
